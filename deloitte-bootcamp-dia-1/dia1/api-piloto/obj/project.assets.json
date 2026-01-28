@@ -503,11 +503,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\henri\\Desktop\\programacao\\bootcamp_dtt\\dia1\\api-piloto\\api-piloto.csproj",
+      "projectUniqueName": "C:\\Users\\henri\\Desktop\\programacao\\bootcamp_dtt_DotNEt\\deloitte-bootcamp-dia-1\\dia1\\api-piloto\\api-piloto.csproj",
       "projectName": "api-piloto",
-      "projectPath": "C:\\Users\\henri\\Desktop\\programacao\\bootcamp_dtt\\dia1\\api-piloto\\api-piloto.csproj",
+      "projectPath": "C:\\Users\\henri\\Desktop\\programacao\\bootcamp_dtt_DotNEt\\deloitte-bootcamp-dia-1\\dia1\\api-piloto\\api-piloto.csproj",
       "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\henri\\Desktop\\programacao\\bootcamp_dtt\\dia1\\api-piloto\\obj\\",
+      "outputPath": "C:\\Users\\henri\\Desktop\\programacao\\bootcamp_dtt_DotNEt\\deloitte-bootcamp-dia-1\\dia1\\api-piloto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config"
