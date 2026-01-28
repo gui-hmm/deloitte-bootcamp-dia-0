@@ -155,10 +155,6 @@ class Program
                     throw new Exception("Opção inválida.");
                 }
 
-
-
-
-
             }
 
             catch (Exception ex)
