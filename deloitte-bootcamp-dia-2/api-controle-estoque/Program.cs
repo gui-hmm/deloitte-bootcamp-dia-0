@@ -1,12 +1,14 @@
 
 class Produto
 {
+    public int Id { get; private set; }
     public string Nome { get; private set; }
     public double Preco { get; private set; }
     public int Quantidade { get; private set; }
 
-    public Produto(string nome, double preco, int quantidade)
+    public Produto(int id, string nome, double preco, int quantidade)
     {
+        Id = id;
         Nome = nome;
         Preco = preco;
         Quantidade = quantidade;
@@ -26,6 +28,7 @@ class Program
     {
         List<Produto> estoque = new List<Produto>();
         string opcao = "";
+        int incrementaId = 1;
 
         while (opcao != "0")
         {
@@ -67,8 +70,10 @@ class Program
                     }
                     else
                     {
-                        Produto produto = new Produto(nome, preco, quantidade);
+                        Produto produto = new Produto(incrementaId, nome, preco, quantidade);
                         estoque.Add(produto);
+                        incrementaId++;
+
                         Console.WriteLine("Produto cadastrado com sucesso!");
                     }
                 }
@@ -87,11 +92,11 @@ class Program
                         {
                             if (p.Quantidade == 0)
                             {
-                                Console.WriteLine($"- {p.Nome} | Preço: R$ {p.Preco} | Quantidade: Estoque Zerado");
+                                Console.WriteLine($"- ID: {p.Id} | Nome: {p.Nome} | Preço: R$ {p.Preco} | Quantidade: Estoque Zerado");
                             }
                             else
                             {
-                                Console.WriteLine($"- {p.Nome} | Preço: R$ {p.Preco} | Quantidade: {p.Quantidade}");
+                                Console.WriteLine($"- ID: {p.Id} | Nome: {p.Nome} | Preço: R$ {p.Preco} | Quantidade: {p.Quantidade}");
                             }
                         }
                     }
@@ -99,12 +104,12 @@ class Program
 
                 else if (opcao == "3")
                 {
-                    Console.Write("Digite o nome do produto que deseja editar: ");
-                    string nomeBusca = Console.ReadLine();
+                    Console.Write("Digite o ID do produto que deseja editar: ");
+                    int idBusca = int.Parse(Console.ReadLine());
 
-                    Produto produto = estoque.Find(p => p.Nome.Equals(nomeBusca, StringComparison.OrdinalIgnoreCase));
+                    Produto produto = estoque.Find(p => p.Id == idBusca);
 
-                    if (string.IsNullOrWhiteSpace(nomeBusca))
+                    if (produto == null)
                         throw new Exception("Produto não encontrado.");
                     
                     Console.Write("Novo nome: ");
@@ -119,7 +124,7 @@ class Program
                     if (string.IsNullOrWhiteSpace(novoNome))
                         throw new Exception("O nome do produto não pode ser vazio.");
 
-                    else if (novoPreco <= 0)
+                    if (novoPreco <= 0)
                         throw new Exception("O preço deve ser maior que zero.");
 
 
@@ -133,12 +138,12 @@ class Program
 
                 else if (opcao == "4")
                 {
-                    Console.Write("Digite o nome do produto que deseja remover: ");
-                    string nomeBusca = Console.ReadLine();
+                    Console.Write("Digite o ID do produto que deseja remover: ");
+                    int idBusca = int.Parse(Console.ReadLine());
 
-                    Produto produto = estoque.Find(p => p.Nome.Equals(nomeBusca, StringComparison.OrdinalIgnoreCase));
+                    Produto produto = estoque.Find(p => p.Id == idBusca);
 
-                    if (string.IsNullOrWhiteSpace(nomeBusca))
+                    if (produto == null)
                         throw new Exception("Produto não encontrado.");
 
                     estoque.Remove(produto);
