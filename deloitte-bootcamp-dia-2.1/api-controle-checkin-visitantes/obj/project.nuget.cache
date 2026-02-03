@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "j/bpe7gm8Ec=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\henri\\Desktop\\programacao\\bootcamp_dtt_DotNEt\\deloitte-bootcamp-dia-2.1\\api-controle-checkin-visitantes\\api-controle-checkin-visitantes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.2\\microsoft.aspnetcore.openapi.10.0.2.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

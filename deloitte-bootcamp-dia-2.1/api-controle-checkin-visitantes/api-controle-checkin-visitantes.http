@@ -1,0 +1,6 @@
+@api_controle_checkin_visitantes_HostAddress = http://localhost:5289
+
+GET {{api_controle_checkin_visitantes_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
