@@ -1,24 +1,31 @@
 class Visitante
 {
-    private int Id { get; set; }
-    private string Nome { get; set; }
-    private string Documento { get; set; }
-    private DateTime HorarioChegada { get; set; }
-    private DateTime? HorarioSaida { get; set; }
-    private bool PrimeiraVez { get; set; }
+    private int _id;
+    private string _nome;
+    private string _documento;
+    private DateTime _horarioChegada;
+    private DateTime? _horarioSaida;
+    private bool _primeiraVez;
+
+    public int Id => _id;
+    public string Nome => _nome;
+    public string Documento => _documento;
+    public DateTime HorarioChegada => _horarioChegada;
+    public DateTime? HorarioSaida => _horarioSaida;
+    public bool PrimeiraVez => _primeiraVez;
 
     public Visitante(int id, string nome, string documento, bool primeiraVez)
     {
-        Id = id;
-        Nome = nome;
-        Documento = documento;
-        PrimeiraVez = primeiraVez;
-        HorarioChegada = DateTime.Now;
-        HorarioSaida = null;
+        _id = id;
+        _nome = nome;
+        _documento = documento;
+        _primeiraVez = primeiraVez;
+        _horarioChegada = DateTime.Now;
+        _horarioSaida = null;
     }
 
     public void RegistrarSaida()
     {
-        HorarioSaida = DateTime.Now;
+        _horarioSaida = DateTime.Now;
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.AssemblyInfoInputs.cache
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.AssemblyInfo.cs
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.csproj.CoreCompileInputs.cache
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.sourcelink.json
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\bin\Debug\net10.0\visitantes-checkin-2.exe
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\bin\Debug\net10.0\visitantes-checkin-2.deps.json
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\bin\Debug\net10.0\visitantes-checkin-2.runtimeconfig.json
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\bin\Debug\net10.0\visitantes-checkin-2.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\bin\Debug\net10.0\visitantes-checkin-2.pdb
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\refint\visitantes-checkin-2.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.pdb
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\visitantes-checkin-2.genruntimeconfig.cache
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-5\visitantes-checkin-2\obj\Debug\net10.0\ref\visitantes-checkin-2.dll
