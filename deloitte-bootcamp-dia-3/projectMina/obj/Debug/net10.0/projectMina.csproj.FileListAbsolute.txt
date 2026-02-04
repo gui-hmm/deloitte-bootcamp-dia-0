@@ -1,0 +1,15 @@
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\bin\Debug\net10.0\projectMina.exe
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\bin\Debug\net10.0\projectMina.deps.json
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\bin\Debug\net10.0\projectMina.runtimeconfig.json
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\bin\Debug\net10.0\projectMina.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\bin\Debug\net10.0\projectMina.pdb
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.AssemblyInfoInputs.cache
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.AssemblyInfo.cs
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.csproj.CoreCompileInputs.cache
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.sourcelink.json
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\refint\projectMina.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.pdb
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\projectMina.genruntimeconfig.cache
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-3\projectMina\obj\Debug\net10.0\ref\projectMina.dll
