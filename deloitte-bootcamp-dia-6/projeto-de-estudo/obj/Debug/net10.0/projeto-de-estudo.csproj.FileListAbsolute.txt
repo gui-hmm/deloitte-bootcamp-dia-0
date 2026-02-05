@@ -121,3 +121,5 @@ C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-6\p
 C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-6\projeto-de-estudo\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-6\projeto-de-estudo\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-6\projeto-de-estudo\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-6\projeto-de-estudo\bin\Debug\net10.0\EFCore.NamingConventions.dll
+C:\Users\henri\Desktop\programacao\bootcamp_dtt_DotNEt\deloitte-bootcamp-dia-6\projeto-de-estudo\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
