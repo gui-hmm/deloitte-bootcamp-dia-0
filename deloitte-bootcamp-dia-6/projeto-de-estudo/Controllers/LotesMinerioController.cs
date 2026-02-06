@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MinhaApi.Data;
-using MinhaApi.Models;
 using MinhaApi.Dtos;
+using MinhaApi.Models;
+using MinhaApi.Mappings;
+
 
 namespace MinhaApi.Controllers
 {
@@ -53,14 +55,79 @@ namespace MinhaApi.Controllers
             _db.LotesMinerio.Add(lote);
             await _db.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = lote.Id }, lote);
+            return CreatedAtAction(
+                nameof(GetById),
+                new { id = lote.Id },
+                lote.ToResponseDto()
+        );
+
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var lote = await _db.LotesMinerio.FindAsync(id);
-            return lote is null ? NotFound() : Ok(lote);
+            var lote = await _db.LotesMinerio
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (lote is null)
+                return NotFound();
+
+            return Ok(lote.ToResponseDto());
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var lotes = await _db.LotesMinerio
+                .AsNoTracking()
+                .ToListAsync();
+
+            return Ok(lotes);
+        }
+
+
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update(int id, CreateLoteMinerioDto input)
+        {
+            var lote = await _db.LotesMinerio.FindAsync(id);
+
+            if (lote is null)
+                return NotFound();
+
+            lote.CodigoLote = input.CodigoLote;
+            lote.MinaOrigem = input.MinaOrigem;
+            lote.TeorFe = input.TeorFe;
+            lote.Umidade = input.Umidade;
+            lote.SiO2 = input.SiO2;
+            lote.P = input.P;
+            lote.Toneladas = input.Toneladas;
+            lote.DataProducao = input.DataProducao ?? DateTime.UtcNow;
+            lote.Status = (StatusLote)input.Status;
+            lote.LocalizacaoAtual = input.LocalizacaoAtual;
+
+            await _db.SaveChangesAsync();
+
+            return Ok(lote.ToResponseDto());
+        }
+
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var lote = await _db.LotesMinerio.FindAsync(id);
+
+            if (lote is null)
+                return NotFound();
+
+            _db.Remove(lote);
+            await _db.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+
+
     }
 }
