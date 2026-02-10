@@ -72,6 +72,149 @@ namespace MinhaApi.Tests.Controllers
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
+        [Fact]
+        public async Task Create_Deve_Retornar_BadRequest_Quando_MinaOrigem_Vazia()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.MinaOrigem = "";
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Retornar_BadRequest_Quando_Localizacao_Vazia()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.LocalizacaoAtual = "";
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Retornar_BadRequest_Quando_TeorFe_Invalido()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.TeorFe = 150;
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Retornar_BadRequest_Quando_TeorFe_Negativo()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.TeorFe = -1;
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Retornar_BadRequest_Quando_Status_Invalido()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.Status = 99;
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Retornar_Conflict_Quando_CodigoJaExiste()
+        {
+            var db = CreateDbContext();
+
+            db.LotesMinerio.Add(new LoteMinerio
+            {
+                CodigoLote = "LT001",
+                MinaOrigem = "Teste",
+                LocalizacaoAtual = "A",
+                TeorFe = 60,
+                Umidade = 5,
+                Toneladas = 100,
+                DataProducao = DateTime.UtcNow,
+                Status = StatusLote.EmEstoque
+            });
+
+            await db.SaveChangesAsync();
+
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto(); // mesmo código
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<ConflictObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Retornar_BadRequest_Quando_Umidade_Invalida()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.Umidade = 200;
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Retornar_BadRequest_Quando_Toneladas_Invalida()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.Toneladas = 0;
+
+            var result = await controller.Create(dto);
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task Create_Deve_Usar_DataAtual_Quando_DataProducao_Null()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+            dto.DataProducao = null;
+
+            await controller.Create(dto);
+
+            var lote = db.LotesMinerio.First();
+
+            Assert.True(lote.DataProducao <= DateTime.UtcNow);
+        }
+
+
         // ==========================
         // GET BY ID
         // ==========================
@@ -182,6 +325,19 @@ namespace MinhaApi.Tests.Controllers
             Assert.Equal("NOVO", db.LotesMinerio.First().CodigoLote);
         }
 
+        [Fact]
+        public async Task Update_Deve_Retornar_NotFound_Quando_Nao_Existe()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var dto = CreateValidDto();
+
+            var result = await controller.Update(999, dto);
+
+            Assert.IsType<NotFoundResult>(result);
+        }
+
         // ==========================
         // DELETE
         // ==========================
@@ -213,5 +369,17 @@ namespace MinhaApi.Tests.Controllers
             Assert.IsType<NoContentResult>(result);
             Assert.Empty(db.LotesMinerio);
         }
+
+        [Fact]
+        public async Task Delete_Deve_Retornar_NotFound_Quando_Nao_Existe()
+        {
+            var db = CreateDbContext();
+            var controller = new LotesMinerioController(db);
+
+            var result = await controller.Delete(999);
+
+            Assert.IsType<NotFoundResult>(result);
+        }
+
     }
 }
