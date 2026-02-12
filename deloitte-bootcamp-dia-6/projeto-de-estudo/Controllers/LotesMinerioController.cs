@@ -4,7 +4,7 @@ using MinhaApi.Data;
 using MinhaApi.Dtos;
 using MinhaApi.Models;
 using MinhaApi.Mappings;
-
+using MinhaApi.Queue;
 
 namespace MinhaApi.Controllers
 {
@@ -13,28 +13,43 @@ namespace MinhaApi.Controllers
     public class LotesMinerioController : ControllerBase
     {
         private readonly AppDbContext _db;
+        private readonly ILoteQueueProducer _queue;
 
-        public LotesMinerioController(AppDbContext db) => _db = db;
+        public LotesMinerioController(
+            AppDbContext db,
+            ILoteQueueProducer queue)
+        {
+            _db = db;
+            _queue = queue;
+        }
 
+        // CREATE
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateLoteMinerioDto input)
         {
             if (string.IsNullOrWhiteSpace(input.CodigoLote))
                 return BadRequest("CodigoLote é obrigatório.");
+
             if (string.IsNullOrWhiteSpace(input.MinaOrigem))
                 return BadRequest("MinaOrigem é obrigatória.");
+
             if (string.IsNullOrWhiteSpace(input.LocalizacaoAtual))
                 return BadRequest("LocalizacaoAtual é obrigatória.");
+
             if (input.TeorFe is < 0 or > 100)
                 return BadRequest("TeorFe deve estar entre 0 e 100 (%).");
+
             if (input.Umidade is < 0 or > 100)
                 return BadRequest("Umidade deve estar entre 0 e 100 (%).");
+
             if (input.Toneladas <= 0)
                 return BadRequest("Toneladas deve ser > 0.");
+
             if (input.Status is < 0 or > 2)
                 return BadRequest("Status inválido (use 0, 1 ou 2).");
 
             var exists = await _db.LotesMinerio.AnyAsync(x => x.CodigoLote == input.CodigoLote);
+
             if (exists)
                 return Conflict($"Já existe um lote com CodigoLote '{input.CodigoLote}'.");
 
@@ -55,14 +70,22 @@ namespace MinhaApi.Controllers
             _db.LotesMinerio.Add(lote);
             await _db.SaveChangesAsync();
 
+            await _queue.EnfileirarAsync(new ProcessarLoteMessage(
+            LoteId: lote.Id,
+            CodigoLote: lote.CodigoLote,
+            TeorFe: lote.TeorFe,
+            Umidade: lote.Umidade,
+            DataProducaoUtc: lote.DataProducao,
+            Acao: "RecalcularClassificacao"
+        ));
+
             return CreatedAtAction(
                 nameof(GetById),
                 new { id = lote.Id },
-                lote.ToResponseDto()
-        );
-
+                lote.ToResponseDto());
         }
 
+        // GET BY ID
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -76,7 +99,7 @@ namespace MinhaApi.Controllers
             return Ok(lote.ToResponseDto());
         }
 
-
+        // GET ALL
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -87,7 +110,7 @@ namespace MinhaApi.Controllers
             return Ok(lotes);
         }
 
-
+        // UPDATE
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, CreateLoteMinerioDto input)
         {
@@ -112,7 +135,7 @@ namespace MinhaApi.Controllers
             return Ok(lote.ToResponseDto());
         }
 
-
+        // DELETE
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -126,8 +149,5 @@ namespace MinhaApi.Controllers
 
             return NoContent();
         }
-
-
-
     }
 }
