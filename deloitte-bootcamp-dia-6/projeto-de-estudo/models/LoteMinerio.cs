@@ -44,5 +44,7 @@ namespace MinhaApi.Models
 
         [Column("status")]
         public StatusLote Status { get; set; }
+
+        public List<HistoricoMovimentacao> Historico { get; set; } = new();
     }
 }

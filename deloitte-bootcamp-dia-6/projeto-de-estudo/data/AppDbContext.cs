@@ -13,6 +13,8 @@ namespace MinhaApi.Data
         {
             modelBuilder.HasDefaultSchema("public");
 
+            modelBuilder.Ignore<HistoricoMovimentacao>();
+
             modelBuilder.Entity<LoteMinerio>(e =>
             {
                 e.ToTable("lotes_minerio");

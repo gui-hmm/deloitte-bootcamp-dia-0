@@ -2,12 +2,16 @@ using Microsoft.EntityFrameworkCore;
 using MinhaApi.Data;
 using MinhaApi.Queue;
 using StackExchange.Redis;
+using MinhaApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Controllers / OpenAPI
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+// Service
+builder.Services.AddSingleton<LoteService>();
 
 // Database
 builder.Services.AddDbContext<AppDbContext>(options =>
