@@ -13,8 +13,8 @@ namespace MinhaApi.Services
 
             if (premium) return "Premium";
 
-            var padrao = lote.TeorFe > 60 &&
-                        lote.Umidade <= 8;
+            var padrao = lote.TeorFe >= 55 &&
+                        lote.Umidade <= 7;
 
             return padrao ? "Padrão" : "Baixa";
         }
