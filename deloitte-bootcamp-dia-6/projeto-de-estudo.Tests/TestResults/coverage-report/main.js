@@ -214,15 +214,22 @@ var assemblies = [
     "name": "projeto-de-estudo",
     "classes": [
       { "name": "Microsoft.AspNetCore.OpenApi.Generated", "rp": "projeto_de_estudo_Generated.html", "cl": 0, "ucl": 381, "cal": 381, "tl": 606, "cb": 0, "tb": 206, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "MinhaApi.Controllers.LotesMinerioController", "rp": "projeto_de_estudo_LotesMinerioController.html", "cl": 79, "ucl": 0, "cal": 79, "tl": 133, "cb": 37, "tb": 38, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "MinhaApi.Data.AppDbContext", "rp": "projeto_de_estudo_AppDbContext.html", "cl": 34, "ucl": 0, "cal": 34, "tl": 47, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Controllers.LotesExtrasController", "rp": "projeto_de_estudo_LotesExtrasController.html", "cl": 50, "ucl": 0, "cal": 50, "tl": 102, "cb": 10, "tb": 10, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Controllers.LotesMinerioController", "rp": "projeto_de_estudo_LotesMinerioController.html", "cl": 92, "ucl": 0, "cal": 92, "tl": 153, "cb": 37, "tb": 38, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Controllers.MovimentoDto", "rp": "projeto_de_estudo_MovimentoDto.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 102, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Data.AppDbContext", "rp": "projeto_de_estudo_AppDbContext.html", "cl": 35, "ucl": 0, "cal": 35, "tl": 49, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "MinhaApi.Dtos.CreateLoteMinerioDto", "rp": "projeto_de_estudo_CreateLoteMinerioDto.html", "cl": 10, "ucl": 0, "cal": 10, "tl": 16, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "MinhaApi.Dtos.LoteMinerioResponseDto", "rp": "projeto_de_estudo_LoteMinerioResponseDto.html", "cl": 13, "ucl": 0, "cal": 13, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "MinhaApi.Mappings.LoteMinerioMapper", "rp": "projeto_de_estudo_LoteMinerioMapper.html", "cl": 15, "ucl": 0, "cal": 15, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "MinhaApi.Models.LoteMinerio", "rp": "projeto_de_estudo_LoteMinerio.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 48, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Program", "rp": "projeto_de_estudo_Program.html", "cl": 0, "ucl": 16, "cal": 16, "tl": 35, "cb": 0, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Models.HistoricoMovimentacao", "rp": "projeto_de_estudo_HistoricoMovimentacao.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 9, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Models.LoteMinerio", "rp": "projeto_de_estudo_LoteMinerio.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 50, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Queue.LoteQueueProducer", "rp": "projeto_de_estudo_LoteQueueProducer.html", "cl": 0, "ucl": 16, "cal": 16, "tl": 38, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Queue.LoteQueueWorker", "rp": "projeto_de_estudo_LoteQueueWorker.html", "cl": 0, "ucl": 92, "cal": 92, "tl": 151, "cb": 0, "tb": 22, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Queue.ProcessarLoteMessage", "rp": "projeto_de_estudo_ProcessarLoteMessage.html", "cl": 2, "ucl": 6, "cal": 8, "tl": 11, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Queue.RedisQueueOptions", "rp": "projeto_de_estudo_RedisQueueOptions.html", "cl": 0, "ucl": 5, "cal": 5, "tl": 11, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "MinhaApi.Services.LoteService", "rp": "projeto_de_estudo_LoteService.html", "cl": 52, "ucl": 0, "cal": 52, "tl": 86, "cb": 21, "tb": 22, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Program", "rp": "projeto_de_estudo_Program.html", "cl": 0, "ucl": 26, "cal": 26, "tl": 58, "cb": 0, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "System.Runtime.CompilerServices", "rp": "projeto_de_estudo_CompilerServices.html", "cl": 0, "ucl": 3, "cal": 3, "tl": 23, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "WeatherForecast", "rp": "projeto_de_estudo_WeatherForecast.html", "cl": 0, "ucl": 2, "cal": 2, "tl": 35, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
@@ -267,6 +274,18 @@ var riskHotspots = [
       { "value": 10, "exceeded": false },
     ]},
   {
+    "assembly": "projeto-de-estudo", "class": "MinhaApi.Queue.LoteQueueWorker", "reportPath": "projeto_de_estudo_LoteQueueWorker.html", "methodName": "ExecuteAsync()", "methodShortName": "ExecuteAsync()", "fileIndex": 0, "line": 27,
+    "metrics": [
+      { "value": 72, "exceeded": true },
+      { "value": 8, "exceeded": false },
+    ]},
+  {
+    "assembly": "projeto-de-estudo", "class": "MinhaApi.Queue.LoteQueueWorker", "reportPath": "projeto_de_estudo_LoteQueueWorker.html", "methodName": "ReentregarPendentesAsync()", "methodShortName": "ReentregarPendentesAsync()", "fileIndex": 0, "line": 90,
+    "metrics": [
+      { "value": 72, "exceeded": true },
+      { "value": 8, "exceeded": false },
+    ]},
+  {
     "assembly": "projeto-de-estudo", "class": "Microsoft.AspNetCore.OpenApi.Generated", "reportPath": "projeto_de_estudo_Generated.html", "methodName": "NormalizeDocId(System.String)", "methodShortName": "NormalizeDocId(...)", "fileIndex": 0, "line": 320,
     "metrics": [
       { "value": 42, "exceeded": true },
@@ -279,7 +298,13 @@ var riskHotspots = [
       { "value": 6, "exceeded": false },
     ]},
   {
-    "assembly": "projeto-de-estudo", "class": "MinhaApi.Controllers.LotesMinerioController", "reportPath": "projeto_de_estudo_LotesMinerioController.html", "methodName": "Create()", "methodShortName": "Create()", "fileIndex": 0, "line": 21,
+    "assembly": "projeto-de-estudo", "class": "MinhaApi.Queue.LoteQueueWorker", "reportPath": "projeto_de_estudo_LoteQueueWorker.html", "methodName": "ProcessarAsync()", "methodShortName": "ProcessarAsync()", "fileIndex": 0, "line": 133,
+    "metrics": [
+      { "value": 42, "exceeded": true },
+      { "value": 6, "exceeded": false },
+    ]},
+  {
+    "assembly": "projeto-de-estudo", "class": "MinhaApi.Controllers.LotesMinerioController", "reportPath": "projeto_de_estudo_LotesMinerioController.html", "methodName": "Create()", "methodShortName": "Create()", "fileIndex": 0, "line": 29,
     "metrics": [
       { "value": 30, "exceeded": false },
       { "value": 30, "exceeded": true },

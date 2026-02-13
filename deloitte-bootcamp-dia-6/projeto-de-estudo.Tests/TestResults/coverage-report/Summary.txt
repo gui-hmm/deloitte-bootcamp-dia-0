@@ -1,32 +1,39 @@
 Summary
-  Generated on: 10/02/2026 - 15:34:49
-  Coverage date: 10/02/2026 - 15:34:34
+  Generated on: 13/02/2026 - 18:30:34
+  Coverage date: 13/02/2026 - 18:30:26
   Parser: Cobertura
   Assemblies: 1
-  Classes: 10
-  Files: 8
-  Line coverage: 28.7%
-  Covered lines: 162
-  Uncovered lines: 402
-  Coverable lines: 564
-  Total lines: 928
-  Branch coverage: 15% (37 of 246)
-  Covered branches: 37
-  Total branches: 246
-  Method coverage: 60.5% (43 of 71)
-  Full method coverage: 60.5% (43 of 71)
-  Covered methods: 43
-  Fully covered methods: 43
-  Total methods: 71
+  Classes: 17
+  Files: 15
+  Line coverage: 35%
+  Covered lines: 286
+  Uncovered lines: 529
+  Coverable lines: 815
+  Total lines: 1383
+  Branch coverage: 22.6% (68 of 300)
+  Covered branches: 68
+  Total branches: 300
+  Method coverage: 57.4% (62 of 108)
+  Full method coverage: 56.4% (61 of 108)
+  Covered methods: 62
+  Fully covered methods: 61
+  Total methods: 108
 
-projeto-de-estudo                               28.7%
+projeto-de-estudo                                 35%
   Microsoft.AspNetCore.OpenApi.Generated           0%
+  MinhaApi.Controllers.LotesExtrasController     100%
   MinhaApi.Controllers.LotesMinerioController    100%
+  MinhaApi.Controllers.MovimentoDto              100%
   MinhaApi.Data.AppDbContext                     100%
   MinhaApi.Dtos.CreateLoteMinerioDto             100%
   MinhaApi.Dtos.LoteMinerioResponseDto           100%
   MinhaApi.Mappings.LoteMinerioMapper            100%
+  MinhaApi.Models.HistoricoMovimentacao          100%
   MinhaApi.Models.LoteMinerio                    100%
+  MinhaApi.Queue.LoteQueueProducer                 0%
+  MinhaApi.Queue.LoteQueueWorker                   0%
+  MinhaApi.Queue.ProcessarLoteMessage             25%
+  MinhaApi.Queue.RedisQueueOptions                 0%
+  MinhaApi.Services.LoteService                  100%
   Program                                          0%
   System.Runtime.CompilerServices                  0%
-  WeatherForecast                                  0%

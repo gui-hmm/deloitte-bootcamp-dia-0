@@ -19,10 +19,7 @@ namespace MinhaApi.Tests.Data
             return new AppDbContext(options);
         }
 
-        // ==========================
-        // DBSET TEST
-        // ==========================
-
+        // DBSET
         [Fact]
         public async Task Deve_Salvar_LoteMinerio_No_Banco()
         {
@@ -46,10 +43,7 @@ namespace MinhaApi.Tests.Data
             Assert.Single(db.LotesMinerio);
         }
 
-        // ==========================
-        // QUERY TEST
-        // ==========================
-
+        // QUERY
         [Fact]
         public async Task Deve_Buscar_Lote_Por_Codigo()
         {
@@ -75,10 +69,7 @@ namespace MinhaApi.Tests.Data
             Assert.NotNull(lote);
         }
 
-        // ==========================
-        // ENUM CONVERSION TEST
-        // ==========================
-
+        // ENUM CONVERSION
         [Fact]
         public async Task Deve_Salvar_Status_Enum_Corretamente()
         {
@@ -104,10 +95,7 @@ namespace MinhaApi.Tests.Data
             Assert.Equal(StatusLote.Embarcado, saved.Status);
         }
 
-        // ==========================
-        // MODEL CONFIG TEST
-        // ==========================
-
+        // MODEL CONFIG
         [Fact]
         public void Deve_Conter_Indice_Unico_CodigoLote()
         {
@@ -121,5 +109,21 @@ namespace MinhaApi.Tests.Data
 
             Assert.True(hasUniqueIndex);
         }
+
+        // Ignore
+        [Fact]
+        public void DbContext_DeveIgnorarHistoricoMovimentacao()
+        {
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase("test_db")
+                .Options;
+
+            var ctx = new AppDbContext(options);
+
+            var entity = ctx.Model.FindEntityType(typeof(HistoricoMovimentacao));
+
+            Assert.Null(entity);
+        }
+
     }
 }

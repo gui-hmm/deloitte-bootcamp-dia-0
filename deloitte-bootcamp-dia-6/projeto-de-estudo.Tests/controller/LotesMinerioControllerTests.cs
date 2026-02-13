@@ -5,6 +5,7 @@ using MinhaApi.Controllers;
 using MinhaApi.Data;
 using MinhaApi.Models;
 using MinhaApi.Dtos;
+using MinhaApi.Tests.Fakes;
 using System;
 using System.Threading.Tasks;
 using System.Linq;
@@ -40,15 +41,15 @@ namespace MinhaApi.Tests.Controllers
             };
         }
 
-        // ==========================
         // CREATE
-        // ==========================
-
         [Fact]
         public async Task Create_Deve_Retornar_Created_Quando_Dados_Validos()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
 
@@ -62,7 +63,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_CodigoLote_Vazio()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.CodigoLote = "";
@@ -76,7 +80,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_MinaOrigem_Vazia()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.MinaOrigem = "";
@@ -90,7 +97,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_Localizacao_Vazia()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.LocalizacaoAtual = "";
@@ -104,7 +114,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_TeorFe_Invalido()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.TeorFe = 150;
@@ -118,7 +131,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_TeorFe_Negativo()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.TeorFe = -1;
@@ -132,7 +148,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_Status_Invalido()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.Status = 99;
@@ -161,7 +180,10 @@ namespace MinhaApi.Tests.Controllers
 
             await db.SaveChangesAsync();
 
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto(); // mesmo código
 
@@ -174,7 +196,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_Umidade_Invalida()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.Umidade = 200;
@@ -188,7 +213,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Retornar_BadRequest_Quando_Toneladas_Invalida()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.Toneladas = 0;
@@ -202,7 +230,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Create_Deve_Usar_DataAtual_Quando_DataProducao_Null()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.DataProducao = null;
@@ -214,11 +245,7 @@ namespace MinhaApi.Tests.Controllers
             Assert.True(lote.DataProducao <= DateTime.UtcNow);
         }
 
-
-        // ==========================
         // GET BY ID
-        // ==========================
-
         [Fact]
         public async Task GetById_Deve_Retornar_Ok_Quando_Existe()
         {
@@ -239,7 +266,10 @@ namespace MinhaApi.Tests.Controllers
             db.Add(lote);
             await db.SaveChangesAsync();
 
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var result = await controller.GetById(lote.Id);
 
@@ -250,17 +280,17 @@ namespace MinhaApi.Tests.Controllers
         public async Task GetById_Deve_Retornar_NotFound_Quando_Nao_Existe()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var result = await controller.GetById(999);
 
             Assert.IsType<NotFoundResult>(result);
         }
 
-        // ==========================
         // GET ALL
-        // ==========================
-
         [Fact]
         public async Task GetAll_Deve_Retornar_Lista()
         {
@@ -280,7 +310,10 @@ namespace MinhaApi.Tests.Controllers
 
             await db.SaveChangesAsync();
 
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var result = await controller.GetAll();
 
@@ -290,10 +323,7 @@ namespace MinhaApi.Tests.Controllers
             Assert.NotNull(lista);
         }
 
-        // ==========================
         // UPDATE
-        // ==========================
-
         [Fact]
         public async Task Update_Deve_Atualizar_Lote()
         {
@@ -314,7 +344,10 @@ namespace MinhaApi.Tests.Controllers
             db.Add(lote);
             await db.SaveChangesAsync();
 
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
             dto.CodigoLote = "NOVO";
@@ -329,7 +362,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Update_Deve_Retornar_NotFound_Quando_Nao_Existe()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var dto = CreateValidDto();
 
@@ -338,10 +374,7 @@ namespace MinhaApi.Tests.Controllers
             Assert.IsType<NotFoundResult>(result);
         }
 
-        // ==========================
         // DELETE
-        // ==========================
-
         [Fact]
         public async Task Delete_Deve_Remover_Lote()
         {
@@ -362,7 +395,10 @@ namespace MinhaApi.Tests.Controllers
             db.Add(lote);
             await db.SaveChangesAsync();
 
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var result = await controller.Delete(lote.Id);
 
@@ -374,7 +410,10 @@ namespace MinhaApi.Tests.Controllers
         public async Task Delete_Deve_Retornar_NotFound_Quando_Nao_Existe()
         {
             var db = CreateDbContext();
-            var controller = new LotesMinerioController(db);
+            var controller = new LotesMinerioController(
+                db,
+                new FakeLoteQueueProducer()
+            );
 
             var result = await controller.Delete(999);
 
